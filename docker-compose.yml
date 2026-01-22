@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  my_order_service:
+    build: ./server
+    ports:
+      - "8080:5000"
+    volumes:
+      - ./data:/app/data
+
+  my_client:
+    build: ./client
+    depends_on:
+      - my_order_service
